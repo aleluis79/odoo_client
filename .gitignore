@@ -1,0 +1,9 @@
+# compiled output
+/dist
+/tmp
+/api/bin
+/api/obj
+
+# IDE - VSCode
+.vscode
+.history/*
