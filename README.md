@@ -8,9 +8,9 @@ http://localhost:8069
 
 ## registar usuario admin
 
-base:     db
-email:    admin@admin
-password: 1234
+base:     db  
+email:    admin@admin  
+password: 1234  
 
 seleccionar demo data
 
@@ -22,5 +22,5 @@ en aplicaciones instalar la aplicación Flota
 
 ## iniciar app de consola
 
-cd api
+cd api  
 dotnet run
