@@ -24,3 +24,5 @@ en aplicaciones instalar la aplicación Flota
 
 cd api  
 dotnet run
+
+that's all folks
