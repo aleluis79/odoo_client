@@ -43,12 +43,31 @@ namespace api
                 Console.WriteLine("Login incorrecto");
             }
 
+            //Actualizo los conductores de un vehículo - many2many campo custom
+            Object[] obj = new Object[]{new Object[] {6, 0, new Object[] {2,7}}};
+            try
+            {
+                await RpcClient.Update<dynamic>("fleet.vehicle", 4, new
+                {
+                    x_conductor = obj
+                });
+                Console.WriteLine("OK - Actualizado");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error getting partners from Odoo: {0}", ex.Message);
+            }
+
+
+
             //Obtengo datos de los autos
             try
             {
                 var fieldParams = new OdooFieldParameters();
                 fieldParams.Add("model_id");
-                fieldParams.Add("display_name");                
+                fieldParams.Add("display_name");
+                fieldParams.Add("x_conductor");
 
                 var autos = await RpcClient.GetAll<JObject[]>("fleet.vehicle", fieldParams, new OdooPaginationParameters().OrderByDescending("name"));
                 foreach (var auto in autos) {
