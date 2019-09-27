@@ -20,7 +20,16 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - odoo-db-data:/var/lib/postgresql/data/pgdata
+      - odoo-db-data:/var/lib/postgresql/data/pgdata      
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - db
+    ports:
+      - "8070:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin
+      PGADMIN_DEFAULT_PASSWORD: 1234
 volumes:
   odoo-web-data:
   odoo-db-data:
